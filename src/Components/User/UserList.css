@@ -1,0 +1,41 @@
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+    /* Add faint border between rows */
+}
+
+/* Style the checkbox column */
+td:first-child {
+    width: 20px;
+    text-align: center;
+}
+
+/* Add curved border after every useritem */
+tr+tr {
+    border-top: 1px solid #ddd;
+}
+
+/* Add border after the last useritem */
+tbody tr:last-child {
+    border-bottom: 1px solid #ddd;
+}
