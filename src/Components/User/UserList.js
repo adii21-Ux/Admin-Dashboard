@@ -1,20 +1,10 @@
 import React from 'react'
-import { useEffect, useState } from 'react';
 import UserItem from './UserItem';
 import './UserList.css'
 
-function UserList() {
-    const [users, setUsers] = useState([])
-
-    useEffect(() => {
-
-        fetch('https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json')
-            .then((response) => response.json())
-            .then((jsonData) => {
-                setUsers(jsonData)
-            })
-            .catch((error) => console.error('Error fetching data:', error));
-    }, []);
+function UserList(props) {
+    const users = props.users
+    
     return (
         <div>
             <table>
