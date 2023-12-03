@@ -1,0 +1,50 @@
+/* SearchBox.css */
+.header-elements {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-box-container {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: 8px;
+    transition: background-color 0.3s ease;
+    width: 300px;
+}
+
+.search-icon {
+    margin-right: 10px;
+    color: #555;
+}
+
+.search-input {
+    border: 1px solid rgb(158, 158, 158);
+    outline: none;
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+.search-icon {
+    position: relative;
+    right: 10%;
+    margin-bottom: 3px;
+}
+
+.search-icon-delete{
+    border: 2px solid #d8d8d7;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px 0px;
+}
+
+.search-icon-delete svg{
+    font-size: 20px;
+}
