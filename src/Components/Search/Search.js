@@ -1,20 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass, faTrash } from '@fortawesome/free-solid-svg-icons'
 import './Search.css'
 
-const SearchBox = ({ onSearch }) => {
+const SearchBox = (props) => {
+    const [initialUsers, updateInitialUsers] = useState(props.users)
+    const updateUsers = props.updateSearch
     const [searchTerm, setSearchTerm] = useState('');
-
+    
     const handleInputChange = (e) => {
-        setSearchTerm(e.target.value);
+        let query = e.target.value.toLowerCase();
+        let filteredUsers;
+        setSearchTerm(query)
+
+        filteredUsers = props.users.filter(
+            user =>
+                user.id.toLowerCase().includes(query) ||
+                user.name.toLowerCase().includes(query) ||
+                user.email.toLowerCase().includes(query) ||
+                user.role.toLowerCase().includes(query)
+        );
+
+        console.log(filteredUsers);
+        updateInitialUsers(filteredUsers)
+        updateUsers(filteredUsers);
     };
 
-    const handleKeyPress = (e) => {
-        if (e.key === 'Enter') {
-            onSearch(searchTerm);
-        }
-    };
+    // const handleKeyPress = (e) => {
+    //     if (e.key === 'Enter') {
+
+    //     }
+    // };
+
 
     return (
         <div className="header-elements">
@@ -24,7 +41,6 @@ const SearchBox = ({ onSearch }) => {
                     placeholder="Search"
                     value={searchTerm}
                     onChange={handleInputChange}
-                    onKeyDown={handleKeyPress}
                     className="search-input"
                 />
                 <div className="search-icon">

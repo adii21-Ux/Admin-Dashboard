@@ -1,16 +1,20 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenToSquare,faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 import './UserItem.css'
 
 function UserItem(props) {
     const { id, name, email, role } = props.user;
-    console.log(props.user)
+
     return (
 
         <tr key={id}>
             <td>
-                <input type="checkbox" />
+                <input type="checkbox"
+                    onClick={
+                        props.toggleCheckbox
+                    } 
+                />
             </td>
             <td>{name}</td>
             <td>{email}</td>
